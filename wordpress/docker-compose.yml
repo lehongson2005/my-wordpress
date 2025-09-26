@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    ports:
+      - "8080:80"  # WordPress tại http://localhost:8080
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: admin
+      WORDPRESS_DB_NAME: admin
+    volumes:
+      - ./wordpress:/var/www/html  # mount thư mục để VS Code thấy
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: admin
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: rootpassword123
+    volumes:
+      - db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports:
+      - "8081:80"  # phpMyAdmin tại http://localhost:8081
+    environment:
+      PMA_HOST: db
+      PMA_USER: admin
+      PMA_PASSWORD: admin
+    depends_on:
+      - db
+
+volumes:
+  wordpress:
+  db:
