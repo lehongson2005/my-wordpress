@@ -6600,3 +6600,9 @@ a.to-the-top > * {
 	color: #1da1f2 !important; /* màu hover */
 	fill: currentColor !important;
 }
+.hieu-ung-lich {
+    color: #ff0000 !important; /* Đổi màu chữ thành đỏ */
+    font-weight: bold !important; /* Chữ in đậm */
+    border: 2px solid #000; /* Thêm đường viền đen */
+    padding: 10px; /* Thêm khoảng cách đệm */
+}
