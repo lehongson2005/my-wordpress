@@ -6582,3 +6582,21 @@ a.to-the-top > * {
 		width: calc(100% - 8rem);
 	}
 }
+/* Bỏ background mặc định + đổi màu icon trắng */
+.wp-block-social-links.is-layout-flex .wp-social-link,
+.wp-block-social-links.is-layout-flex .wp-social-link a,
+.wp-block-social-links.is-layout-flex .wp-social-link svg,
+.wp-block-social-links.is-layout-flex .wp-social-link svg path {
+	background-color: transparent !important; /* bỏ nền */
+	color: #fff !important;                  /* icon theo currentColor */
+	fill: currentColor !important;           /* ép fill SVG */
+}
+
+/* Đổi màu khi hover (ví dụ xanh) */
+.wp-block-social-links.is-layout-flex .wp-social-link:hover,
+.wp-block-social-links.is-layout-flex .wp-social-link a:hover,
+.wp-block-social-links.is-layout-flex .wp-social-link svg:hover,
+.wp-block-social-links.is-layout-flex .wp-social-link svg path:hover {
+	color: #1da1f2 !important; /* màu hover */
+	fill: currentColor !important;
+}

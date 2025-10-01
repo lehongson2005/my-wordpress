@@ -1,11 +1,6 @@
 
 <style>
-    .footer {
-        text-align: center;
-        color: white;
-        background-color: #333; /* Màu nền footer */
-        padding: 20px;
-    }
+    
 
     .social {
         list-style: none;
@@ -38,6 +33,20 @@
         color: #00ff00;
         text-decoration: none;
     }
+/* Hàng 2: Footer 4 ra giữa hẳn */
+.footer-widgets-wrapper.footer-row-2 {
+    display: block !important; /* bỏ grid/flex mặc định */
+    text-align: center !important; /* canh giữa nội dung */
+	margin-left: 95px;
+}
+
+.footer-widgets-wrapper.footer-row-2 .footer-widgets {
+    display: inline-block !important; /* block nội dung */
+    float: none !important;           /* override float mặc định */
+    text-align: center !important;    /* chữ bên trong cũng ra giữa */
+}
+
+
 </style>
 
 <?php
@@ -158,13 +167,14 @@ if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ) 
         </div><!-- .footer-widgets-wrapper hàng 1 -->
 
         <!-- Hàng 2: Footer 4 -->
-       <?php if ( $has_sidebar_4 ) : ?>
-    <div class="footer-widgets-wrapper footer-row-2" style="display: flex !important; justify-content: center !important;">
-        <div class="footer-widgets column-four grid-item" style="text-align: center !important;">
+      <?php if ( $has_sidebar_4 ) : ?>
+    <div class="footer-widgets-wrapper footer-row-2">
+        <div class="footer-widgets column-four grid-item">
             <?php dynamic_sidebar( 'sidebar-4' ); ?>
         </div>
     </div>
 <?php endif; ?>
+
 
 
     </aside><!-- .footer-widgets-outer-wrapper -->
